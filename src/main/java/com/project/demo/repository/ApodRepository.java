@@ -6,5 +6,12 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
 import java.util.List;
 
 public interface ApodRepository extends ElasticsearchRepository<Apod, String> {
-    List<Apod> findByTitleContaining(String title);
+    // Find all APOD entries by title containing the given keyword, case-insensitive
+    List<Apod> findByTitleContainingIgnoreCase(String keyword);
+
+    // Find all APOD entries by explanation containing the given keyword, case-insensitive
+    List<Apod> findByExplanationContainingIgnoreCase(String keyword);
+
+    // Find all APOD entries by authors containing the given keyword, case-insensitive
+//    List<Apod> findByAuthorsContainingIgnoreCase(String keyword);
 }
